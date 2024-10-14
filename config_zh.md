@@ -346,6 +346,11 @@ Option name | Requirement   | Description
 
   * **`class`** (string, REQUIRED) 指定 I/O 调度类。可能的值为 `IOPRIO_CLASS_RT`、`IOPRIO_CLASS_BE` 和 `IOPRIO_CLASS_IDLE`。
   * **`priority`** (int, REQUIRED) 指定类内的优先级。该值应该是一个介于 0（最高）到 7（最低）之间的整数。
+* **`execCPUAffinity`** (object, OPTIONAL) 指定用于执行该进程的 CPU 亲和性。
+    此设置不适用于容器的 init 进程。
+    可使用以下属性：
+  * **`initial`** (string, OPTIONAL) 是在转换到容器的 cgroup 之前最初要运行的运行时父进程的 CPU 列表。这是一个以逗号分隔的列表，其中的破折号表示范围。例如， `"0-3,7"` 表示 CPU 0、1、2、3 和 7。
+  * **`final`** (string, OPTIONAL) 是转换到容器的 cgroup 后进程将在其上运行的 CPU 列表。 格式与 `initial` 相同。 如果省略或为空，则在将进程移动到容器的 cgroup 后，运行时不应更改进程的 CPU 亲和性，最终亲和性由 Linux 内核决定。
 
 
 ### <a name="configUser" />User

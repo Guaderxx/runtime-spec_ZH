@@ -387,8 +387,8 @@ cgroup.threads
 * **`period`** *(uint64, OPTIONAL)* - 指定应重新分配 cgroup 对 CPU 资源的访问权限的时间段（以微秒为单位）（仅限 CFS 调度程序）
 * **`realtimeRuntime`** *(int64, OPTIONAL)* - 指定 cgroup 中的任务可以访问 CPU 资源的最长连续时间段（以微秒为单位）
 * **`realtimePeriod`** *(uint64, OPTIONAL)* - 与 **`period`** 相同，但仅适用于实时调度程序
-* **`cpus`** *(string, OPTIONAL)* - 容器将运行的 CPU 列表
-* **`mems`** *(string, OPTIONAL)* - 容器将在其中运行的内存节点列表
+* **`cpus`** *(string, OPTIONAL)* - 容器将在其上运行的 CPU 列表。这是一个以逗号分隔的列表，其中的破折号表示范围。例如， `"0-3,7"` 表示 CPU 0、1、2、3 和 7。
+* **`mems`** *(string, OPTIONAL)* - 容器将在其上运行的内存节点列表。这是一个以逗号分隔的列表，其中的破折号表示范围。例如， `"0-3,7"` 表示内存节点 0、1、2、3 和 7。
 * **`idle`** *(int64, OPTIONAL)* - cgroup 配置了最小权重，0：默认行为，1：SCHED_IDLE。
 
 
