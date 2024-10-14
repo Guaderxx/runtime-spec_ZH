@@ -181,11 +181,11 @@
                         "priority": {
                             "$ref": "defs.json#/definitions/int32"
                         },
-                       "flags": {
-                           "type": "array",
-                           "items": {
-                               "$ref": "defs-linux.json#/definitions/SchedulerFlag"
-                           }
+                        "flags": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "defs-linux.json#/definitions/SchedulerFlag"
+                            }
                         },
                         "runtime": {
                             "$ref": "defs.json#/definitions/uint64"
@@ -220,7 +220,20 @@
                             }
                         }
                     }
-                }
+                },
+                "execCPUAffinity": {
+                    "type": "object",
+                    "properties": {
+                        "initial": {
+                            "type": "string",
+			    "pattern": "^[0-9, -]*$"
+                        },
+                        "final": {
+                            "type": "string",
+			    "pattern": "^[0-9, -]*$"
+                        }
+                    }
+		}
             }
         },
         "linux": {
